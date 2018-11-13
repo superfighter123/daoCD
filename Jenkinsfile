@@ -22,31 +22,31 @@ pipeline {
 
 	}
 	
-	stage('upload artifacts'){
-	steps { 
-		script{ 
-				def server = Artifactory.server('art1')
-				def rtMaven = Artifactory.newMavenBuild()
-				rtMaven.tool = 'mav'
-				rtMaven.deployer server: server, releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local'
+//	stage('upload artifacts'){
+//	steps { 
+		//script{ 
+				//def server = Artifactory.server('art1')
+				//def rtMaven = Artifactory.newMavenBuild()
+				//rtMaven.tool = 'mav'
+				//rtMaven.deployer server: server, releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local'
 
 
-			def buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install'
-			buildInfo.env.capture = true
-			rtMaven.deployer.deployArtifacts buildInfo
-			server.publishBuildInfo buildInfo
+			//def buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install'
+			//buildInfo.env.capture = true
+			//rtMaven.deployer.deployArtifacts buildInfo
+			//server.publishBuildInfo buildInfo
 
 
 	
 	
-			}	
-		}
+			//}	
+		//}
 				
 	
 
 	
 	
-	}
+	//}
 	}
 post {
         always {
