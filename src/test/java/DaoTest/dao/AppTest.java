@@ -53,6 +53,7 @@ public class AppTest
 	 //Assert
 		Mockito.verify(rdao).delete(r1);
 		Mockito.verify(rdao).save(r1);
+		Mockito.verify(rdao ,Mockito.never()).save(r1);
 		Mockito.verifyNoMoreInteractions(rdao);
 	 
     	
