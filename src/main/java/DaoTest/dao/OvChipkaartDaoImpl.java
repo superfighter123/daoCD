@@ -25,6 +25,9 @@ public class OvChipkaartDaoImpl extends OracleBaseDAO implements OvChipkaartDao 
 	
 		return OvChipkaarten;
 	}
+	public void testmethod() {
+		int a = 1;
+	}
 
 	
 	public boolean SetOvChipkaart(OvChipkaart o1) throws SQLException {
@@ -45,6 +48,7 @@ public class OvChipkaartDaoImpl extends OracleBaseDAO implements OvChipkaartDao 
 		p.setString(1, o1.getReiziger().getNaam());
 		p.setString(2, o1.getAbbonement());
 		p.executeUpdate();
+		testmethod();
 		return true;
 		
 	}

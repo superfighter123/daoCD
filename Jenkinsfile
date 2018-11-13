@@ -21,7 +21,7 @@ pipeline {
 	}
 
 	}
-	
+	//trial expired
 //	stage('upload artifacts'){
 //	steps { 
 		//script{ 
