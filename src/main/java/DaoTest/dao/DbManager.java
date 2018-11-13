@@ -14,14 +14,15 @@ public class DbManager {
 	}
 
 	public void deleteovchipkaart() {
-	
-	
-	
-}
+
+	}
 
 	public void deleteReiziger(Reiziger r1) throws SQLException {
-		rdao.delete(r1);
 
+		if (r1.getNaam() != "eelke") {
+			rdao.delete(r1);
+
+		}
 	}
 
 	public void saveReiziger(Reiziger r1) throws SQLException {
