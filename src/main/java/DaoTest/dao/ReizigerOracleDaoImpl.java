@@ -50,7 +50,7 @@ public class ReizigerOracleDaoImpl extends OracleBaseDAO implements ReizigerDao 
 		return lijst;
 	}
 
-	public Reiziger save(Reiziger reiziger) throws SQLException {
+	public Boolean save(Reiziger reiziger) throws SQLException {
 		Connection conn = super.getConnection();
 		String query = "insert into reiziger (naam, gbdatum) values (?,?)";
 		PreparedStatement p = conn.prepareStatement(query);
@@ -70,7 +70,7 @@ public class ReizigerOracleDaoImpl extends OracleBaseDAO implements ReizigerDao 
 		System.out.println(naam + ", " + gbdatum);
 		Reiziger r1 = new Reiziger(naam, gbdatum);
 		
-		return r1;
+		return true;
 
 	}
 

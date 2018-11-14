@@ -20,7 +20,11 @@ public class DbManager {
 	public void deleteReiziger(Reiziger r1) throws SQLException {
 
 		if (r1.getNaam() != "eelke") {
-			rdao.delete(r1);
+			boolean result = rdao.delete(r1);
+			if(result == false) {
+				System.out.println("failed");
+				throw new IllegalAccessError("return value indicates failure");
+			}
 
 		}
 	}
