@@ -193,8 +193,8 @@ public class AppTest extends TestCase {
 	
 	
 	
-	
-/*	public void testMockAnnotation() throws SQLException {
+	//actually tests hte database
+	public void testMockCallingRealMethods() throws SQLException {
 
 	
 		// arrange
@@ -206,25 +206,24 @@ public class AppTest extends TestCase {
 		String gbdatum = "01-01-2001";
 		String naam = "eeelke";
 		Reiziger r1 = new Reiziger(naam, gbdatum);
-		InOrder inOrder = inOrder(rdao);
-		InOrder mockOrder = inOrder(rdao,odao);
-
 		OvChipkaart o1 = new OvChipkaart("student weekend", r1);
 		when(rdao.delete(argThat(new IsReiziger()))).thenReturn(true);
+		doCallRealMethod().when(rdao).delete(argThat(new IsReiziger()));
+		doCallRealMethod().when(rdao).save(argThat(new IsReiziger()));
+		
 		// act
 		manager.deleteovchipkaart(o1);
 		manager.deleteReiziger(r1);
 		manager.saveReiziger(r1);
 
 		// assert
-		inOrder.verify(rdao).delete(r1);
-		inOrder.verify(rdao).save(r1);
+		
 		verify(rdao).delete(r1);
 		verify(rdao, times(1)).save(r1);
 
 	}
 	
-	*/
+	
 	
 	
 	
