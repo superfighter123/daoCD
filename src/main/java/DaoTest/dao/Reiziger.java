@@ -26,4 +26,7 @@ public class Reiziger {
 	public void setGBdatum(String gb) {
 		gbdatum = gb;
 	}
+	public String toString(){
+		return naam + gbdatum;
+	}
 }

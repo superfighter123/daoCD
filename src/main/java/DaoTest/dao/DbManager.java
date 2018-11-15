@@ -12,6 +12,17 @@ public class DbManager {
 		this.odao = odao;
 
 	}
+	public DbManager() {
+		rdao = new ReizigerOracleDaoImpl();
+		odao = new OvChipkaartDaoImpl();
+		
+		
+	}
+	
+	public void saveOV(OvChipkaart o1) throws SQLException {
+		
+		odao.SetOvChipkaart(o1);
+	}
 
 	public void deleteovchipkaart(OvChipkaart o1) throws SQLException {
 		odao.DeleteOvChipkaart(o1);

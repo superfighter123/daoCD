@@ -69,6 +69,7 @@ public class ReizigerOracleDaoImpl extends OracleBaseDAO implements ReizigerDao 
 		String gbdatum = r.getString("gbdatum");
 		System.out.println(naam + ", " + gbdatum);
 		Reiziger r1 = new Reiziger(naam, gbdatum);
+		conn.close();
 		
 		return true;
 

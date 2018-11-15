@@ -37,6 +37,8 @@ public class OvChipkaartDaoImpl extends OracleBaseDAO implements OvChipkaartDao 
 		p.setString(1, o1.getReiziger().getNaam());
 		p.setString(2, o1.getAbbonement());
 		p.executeUpdate();
+		conn.close();
+		System.out.println("naam " + o1.getReiziger() + " abonnement "  + o1.getAbbonement());
 		return true;
 	}
 
