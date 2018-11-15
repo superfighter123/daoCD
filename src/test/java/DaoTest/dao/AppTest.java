@@ -3,9 +3,13 @@ package DaoTest.dao;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.junit.Rule;
 import org.mockito.*;
 import org.mockito.Mockito;
 import org.mockito.internal.matchers.Any;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
+
 import static org.mockito.Mockito.*;
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -14,7 +18,12 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
+
 public class AppTest extends TestCase {
+	
+	
+
+
 	/**
 	 * Create the test case
 	 *
@@ -129,7 +138,7 @@ public class AppTest extends TestCase {
 
 	}
 
-	public void testParameterInput_ShouldFail() throws SQLException {
+	public void testParameterInput() throws SQLException {
 		// arrange
 		OvChipkaartDaoImpl odao = Mockito.mock(OvChipkaartDaoImpl.class);
 		ReizigerOracleDaoImpl rdao = Mockito.mock(ReizigerOracleDaoImpl.class);
@@ -143,7 +152,7 @@ public class AppTest extends TestCase {
 		OvChipkaart o1 = new OvChipkaart("student weekend", r1);
 		when(rdao.delete(argThat(new IsReiziger()))).thenReturn(true);
 		// act
-		manager.deleteReiziger(r2);
+		manager.deleteReiziger(r1);
 		manager.saveReiziger(r1);
 
 		// assert
@@ -182,6 +191,40 @@ public class AppTest extends TestCase {
 
 	}
 	
+	
+	
+	
+/*	public void testMockAnnotation() throws SQLException {
+
+	
+		// arrange
+		OvChipkaartDaoImpl odao = Mockito.mock(OvChipkaartDaoImpl.class);
+		ReizigerOracleDaoImpl rdao = Mockito.mock(ReizigerOracleDaoImpl.class);
+
+		DbManager manager = new DbManager(odao, rdao);
+
+		String gbdatum = "01-01-2001";
+		String naam = "eeelke";
+		Reiziger r1 = new Reiziger(naam, gbdatum);
+		InOrder inOrder = inOrder(rdao);
+		InOrder mockOrder = inOrder(rdao,odao);
+
+		OvChipkaart o1 = new OvChipkaart("student weekend", r1);
+		when(rdao.delete(argThat(new IsReiziger()))).thenReturn(true);
+		// act
+		manager.deleteovchipkaart(o1);
+		manager.deleteReiziger(r1);
+		manager.saveReiziger(r1);
+
+		// assert
+		inOrder.verify(rdao).delete(r1);
+		inOrder.verify(rdao).save(r1);
+		verify(rdao).delete(r1);
+		verify(rdao, times(1)).save(r1);
+
+	}
+	
+	*/
 	
 	
 	
