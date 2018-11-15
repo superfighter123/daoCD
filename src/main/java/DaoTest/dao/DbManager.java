@@ -13,7 +13,8 @@ public class DbManager {
 
 	}
 
-	public void deleteovchipkaart() {
+	public void deleteovchipkaart(OvChipkaart o1) throws SQLException {
+		odao.DeleteOvChipkaart(o1);
 
 	}
 
