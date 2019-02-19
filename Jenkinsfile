@@ -14,12 +14,12 @@ pipeline {
 	}
 
 	}
-stage('mutation tests')
+stage('mutation tests'){
 steps{
 sh 'mvn org.pitest:pitest-maven:mutationCoverage' 
 
 }
-	}
+	}}
 post {
         always {
             junit 'target/surefire-reports/*.xml'
