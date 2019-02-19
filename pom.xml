@@ -21,6 +21,8 @@
     <version>2.10.0</version>
     <scope>test</scope>
 </dependency>
+
+
   
     <dependency>
       <groupId>org.junit.vintage</groupId>
@@ -34,4 +36,13 @@
     <version>3.25.2</version>
 </dependency>
   </dependencies>
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.pitest</groupId>
+  			<artifactId>pitest-maven</artifactId>
+  			<version>LATEST</version>
+  		</plugin>
+  	</plugins>
+  </build>
 </project>
