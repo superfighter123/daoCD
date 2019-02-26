@@ -5,11 +5,11 @@ pipeline{
 stages{
     stage('unittests'){
 	steps{
-	sh 'mvn test'
+	bat 'mvn test'
 	}}
 stage('mutation tests'){
 steps{
-sh 'mvn org.pitest:pitest-maven:mutationCoverage' 
+bat 'mvn org.pitest:pitest-maven:mutationCoverage' 
 
 }
 post{
