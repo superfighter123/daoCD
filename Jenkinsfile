@@ -1,15 +1,18 @@
 pipeline{
-	 agent {
-        label 'master'
-    }
+agent{
+        docker {
+            image 'maven:3-alpine'
+            args '-v /root/.m2:/root/.m2'
+        }
+}
 stages{
     stage('unittests'){
 	steps{
-	bat 'mvn test'
+	sh 'mvn test'
 	}}
 stage('mutation tests'){
 steps{
-bat 'mvn org.pitest:pitest-maven:mutationCoverage' 
+sh 'mvn org.pitest:pitest-maven:mutationCoverage' 
 
 }
 post{
